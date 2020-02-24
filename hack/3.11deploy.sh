@@ -13,11 +13,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-all_files=()
-for file in deploy/crds/*crd.yaml; do all_files=( "${all_files[@]}" "${file}") ; done
-for file in deploy/*.yaml; do all_files=( "${all_files[@]}" "${file}") ; done
+#all_files=()
+#for file in deploy/crds/*crd.yaml; do all_files=( "${all_files[@]}" "${file}") ; done
+#for file in deploy/*.yaml; do all_files=( "${all_files[@]}" "${file}") ; done
 
-for FILE in "${all_files[@]}"
+#for FILE in "${all_files[@]}"
+#do
+#  oc apply -f ${FILE}
+#done
+
+for file in deploy/crds/*crd.yaml
 do
-  oc apply -f ${FILE}
+  #cmd [option] "$file" >> results.out
+  oc apply -f ${file}
+done
+
+for file in deploy/*.yaml
+do
+  #cmd [option] "$file" >> results.out
+  oc apply -f ${file}
 done
